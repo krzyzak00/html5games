@@ -1,0 +1,16 @@
+#views {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+#views .view {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border-radius: 10px;
+	overflow: auto;
+	position: absolute;
+}
