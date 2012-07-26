@@ -23,11 +23,11 @@ function(Amplify, Mustache, Orientation,  ZoomTpl){
 		maxSize = Orientation.getScreenSize();
 
 		Amplify.subscribe('tile/zoomin', repaint)
+		Amplify.subscribe('screen/resize', setMaxSize);
 
 	}
 
 	var hide = function() {
-
 		detachListeners();
 		_$node.addClass('zoomOut').removeClass('zoomIn');
 	}
@@ -35,19 +35,17 @@ function(Amplify, Mustache, Orientation,  ZoomTpl){
 	function setMaxSize(size) {
 
 		maxSize = size;
-		repaint(currentImg.src, currentImg.title);
+
+		if (_$node.hasClass('zoomIn'))
+			repaint(currentImg.src, currentImg.title);
 	}
 
 	function attachListeners() {
-
 		_$node.click(hide);
-		Amplify.subscribe('screen/resize', setMaxSize);
 	}
 
 	function detachListeners() {
-
 		_$node.unbind('click', hide);
-		Amplify.unsubscribe('screen/resize', setMaxSize);
 	}
 
 	function repaint(image_src, title) {
