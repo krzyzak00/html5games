@@ -76,11 +76,11 @@
 }
 
 .zoomIn {
-	-webkit-transform: translate(0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
 	-webkit-transition-duration: 350ms;
 }
 
 .zoomOut {
-	-webkit-transform: translate(100%, 0);
+	-webkit-transform: translate3d(100%, 0, 0);
 	-webkit-transition-duration: 350ms;
 }
